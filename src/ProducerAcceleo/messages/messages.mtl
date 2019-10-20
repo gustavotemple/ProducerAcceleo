@@ -1,0 +1,49 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module messages.
+ */]
+[module messages('http://www.example.org/mo631model')]
+
+[**
+ * The documentation of the template Messages.
+ * @param producerRoot ProducerRoot
+ */]
+[template public Messages(producerRoot : ProducerRoot)]
+
+[for (producer : Producer | producerRoot.producer)]
+
+[file ('src/main/java/rabbitmq/producer/runners/Runner' + producer.binding.routingKey + '.java', false, 'UTF-8')]
+
+package rabbitmq.producer.runners;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+import rabbitmq.producer.exchanges.['RoutingKey' + producer.binding.routingKey + 'Impl' /];
+
+@Component
+public class ['Runner' + producer.binding.routingKey /] implements CommandLineRunner {
+
+    @Autowired
+    private ['RoutingKey' + producer.binding.routingKey + 'Impl' /] [VariableName(producer.binding)/];
+
+    @Override
+    public void run(String... args) throws Exception {
+        [VariableName(producer.binding)/].send("[producer.message.payload/]");
+    }
+
+}
+
+[/file]
+
+[/for]
+
+[/template]
+
+[**
+ * The documentation of the template VariableName.
+ * @param binding Binding
+ */]
+[template private VariableName(binding : Binding) post(toLowerFirst())]
+['RoutingKey' + binding.routingKey/]
+[/template]

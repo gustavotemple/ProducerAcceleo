@@ -6,6 +6,7 @@
 
 [import ProducerAcceleo::configurations::configurations /]
 [import ProducerAcceleo::exchanges::exchanges /]
+[import ProducerAcceleo::messages::messages /]
 [import ProducerAcceleo::resources::resources /]
 
 [**
@@ -16,9 +17,8 @@
 [comment @main/]
 
 [ProducerApplication()/]
-
 [Exchanges(producerRoot)/]
-
+[Messages(producerRoot)/]
 [ApplicationProperties(producerRoot)/]
 
 [/template]
