@@ -5,7 +5,7 @@
 [module configurations('http://www.example.org/mo631model')]
 
 [**
- * The documentation of the template ConsumerApplication.
+ * The documentation of the template ProducerApplication.
  * @param anOclAny OclAny
  */]
 [template public ProducerApplication(anOclAny : OclAny)]
