@@ -1,0 +1,56 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module exchanges.
+ */]
+[module exchanges('http://www.example.org/mo631model')]
+
+[**
+ * The documentation of the template Exchanges.
+ * @param producerRoot ProducerRoot
+ */]
+[template public Exchanges(producerRoot : ProducerRoot)]
+
+[for (producer : Producer | producerRoot.producer)]
+
+[file ('src/main/java/rabbitmq/producer/exchanges/RoutingKey' + producer.binding.routingKey + '.java', false, 'UTF-8')]
+
+package rabbitmq.producer.exchanges;
+
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+
+public abstract class ['RoutingKey' + producer.binding.routingKey /] {
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
+    @Value("[producer.binding.exchange.name /]")
+    private String exchange;
+
+    @Value("[producer.binding.routingKey /]")
+    private String routingKey;
+
+    public void send(String message) {
+        rabbitTemplate.convertAndSend(exchange, routingKey, message);
+    }
+
+}
+
+[/file]
+
+[file ('src/main/java/rabbitmq/producer/exchanges/RoutingKey' + producer.binding.routingKey + 'Impl.java', false, 'UTF-8')]
+
+package rabbitmq.producer.exchanges;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class ['RoutingKey' + producer.binding.routingKey + 'Impl' /] extends ['RoutingKey' + producer.binding.routingKey /] {
+}
+
+[/file]
+
+[/for]
+
+[/template]

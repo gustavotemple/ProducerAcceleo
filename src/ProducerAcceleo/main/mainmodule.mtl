@@ -1,0 +1,24 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module mainmodule.
+ */]
+[module mainmodule('http://www.example.org/mo631model')]
+
+[import ProducerAcceleo::configurations::configurations /]
+[import ProducerAcceleo::exchanges::exchanges /]
+[import ProducerAcceleo::resources::resources /]
+
+[**
+ * The documentation of the template Main.
+ * @param producerRoot
+ */]
+[template public Main(producerRoot : ProducerRoot)]
+[comment @main/]
+
+[ProducerApplication()/]
+
+[Exchanges(producerRoot)/]
+
+[ApplicationProperties(producerRoot)/]
+
+[/template]

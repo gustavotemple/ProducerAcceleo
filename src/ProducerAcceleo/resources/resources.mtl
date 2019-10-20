@@ -1,0 +1,22 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module resources.
+ */]
+[module resources('http://www.example.org/mo631model')]
+
+[**
+ * The documentation of the template ApplicationProperties.
+ * @param producerRoot : ProducerRoot
+ */]
+[template public ApplicationProperties(producerRoot : ProducerRoot)]
+
+[file ('src/main/resources/application.properties', false, 'UTF-8')]
+
+['spring.rabbitmq.host=' + producerRoot.host /]
+['spring.rabbitmq.port=' + producerRoot.port /]
+['spring.rabbitmq.password=' + producerRoot.password /]
+['spring.rabbitmq.username=' + producerRoot.username /]
+
+[/file]
+
+[/template]
