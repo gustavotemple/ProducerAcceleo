@@ -11,6 +11,16 @@
 [template public Messages(producerRoot : ProducerRoot)]
 
 [for (producer : Producer | producerRoot.producer)]
+[Runner(producer)/]
+[/for]
+
+[/template]
+
+[**
+ * The documentation of the template Runner.
+ * @param producer Producer
+ */]
+[template private Runner(producer : Producer) ? (producer.message->size() >= 1)]
 
 [file ('src/main/java/rabbitmq/producer/runners/Runner' + producer.binding.routingKey + '.java', false, 'UTF-8')]
 
@@ -29,14 +39,15 @@ public class ['Runner' + producer.binding.routingKey /] implements CommandLineRu
 
     @Override
     public void run(String... args) throws Exception {
-        [VariableName(producer.binding)/].send("[producer.message.payload/]");
+
+		[for (msg : Message | producer.message)]
+        [VariableName(producer.binding)/].send("[msg.payload/]");
+		[/for]
     }
 
 }
 
 [/file]
-
-[/for]
 
 [/template]
 
