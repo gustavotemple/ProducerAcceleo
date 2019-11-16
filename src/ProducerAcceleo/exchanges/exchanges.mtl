@@ -12,7 +12,7 @@
 
 [for (producer : Producer | producerRoot.producer)]
 
-[file ('src/main/java/rabbitmq/producer/exchanges/RoutingKey' + producer.binding.routingKey + '.java', false, 'UTF-8')]
+[file ('ProducerApp/src/main/java/rabbitmq/producer/exchanges/RoutingKey' + producer.binding.routingKey + '.java', false, 'UTF-8')]
 
 package rabbitmq.producer.exchanges;
 
@@ -39,7 +39,7 @@ public abstract class ['RoutingKey' + producer.binding.routingKey /] {
 
 [/file]
 
-[file ('src/main/java/rabbitmq/producer/exchanges/RoutingKey' + producer.binding.routingKey + 'Impl.java', false, 'UTF-8')]
+[file ('ProducerApp/src/main/java/rabbitmq/producer/exchanges/RoutingKey' + producer.binding.routingKey + 'Impl.java', false, 'UTF-8')]
 
 package rabbitmq.producer.exchanges;
 

@@ -22,7 +22,7 @@
  */]
 [template private Runner(producer : Producer) ? (producer.message->size() >= 1)]
 
-[file ('src/main/java/rabbitmq/producer/runners/Runner' + producer.binding.routingKey + '.java', false, 'UTF-8')]
+[file ('ProducerApp/src/main/java/rabbitmq/producer/runners/Runner' + producer.binding.routingKey + '.java', false, 'UTF-8')]
 
 package rabbitmq.producer.runners;
 

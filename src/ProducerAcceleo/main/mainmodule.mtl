@@ -8,17 +8,21 @@
 [import ProducerAcceleo::exchanges::exchanges /]
 [import ProducerAcceleo::messages::messages /]
 [import ProducerAcceleo::resources::resources /]
+[import ProducerAcceleo::dependencies::dependencies /]
 
 [**
  * The documentation of the template Main.
- * @param producerRoot
+ * @param producerRoot ProducerRoot
  */]
 [template public Main(producerRoot : ProducerRoot)]
 [comment @main/]
 
 [ProducerApplication()/]
+
 [Exchanges(producerRoot)/]
 [Messages(producerRoot)/]
+
 [ApplicationProperties(producerRoot)/]
+[Dependencies(producerRoot)/]
 
 [/template]

@@ -10,8 +10,9 @@
  */]
 [template public ApplicationProperties(producerRoot : ProducerRoot)]
 
-[file ('src/main/resources/application.properties', false, 'UTF-8')]
+[file ('ProducerApp/src/main/resources/application.properties', false, 'UTF-8')]
 
+['spring.application.name=' + producerRoot.name /]
 ['spring.rabbitmq.host=' + producerRoot.host /]
 ['spring.rabbitmq.port=' + producerRoot.port /]
 ['spring.rabbitmq.password=' + producerRoot.password /]
