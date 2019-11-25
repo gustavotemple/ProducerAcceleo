@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mo631model:ProducerRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:mo631model="http://www.example.org/mo631model">
+  <producer name="producer1">
+    <message payload="prod1"/>
+    <binding routingKey="key1">
+      <exchange name="exchange1"/>
+    </binding>
+  </producer>
+  <producer name="producer2">
+    <message payload="prod2"/>
+    <message payload="prod2"/>
+    <binding routingKey="bbb">
+      <exchange name="ccc"/>
+    </binding>
+  </producer>
+  <producer name="producer3">
+    <message payload="prod3"/>
+    <binding routingKey="eee">
+      <exchange name="fff"/>
+    </binding>
+  </producer>
+</mo631model:ProducerRoot>
